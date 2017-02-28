@@ -13,5 +13,5 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 
 -Const is ES6 syntax. Const is declaring a variable as var. But const variable cannot be reassigned.
 
--jsx is a subset of javascript that allows to write HTML inside js. This is then transpiled to normal HTML. 
+-jsx is a subset of javascript that allows to write HTML inside js. This is then transpiled to normal HTML.  JSX is a set of js code that produces html code.
 
