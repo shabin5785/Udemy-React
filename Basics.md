@@ -15,3 +15,5 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 
 -jsx is a subset of javascript that allows to write HTML inside js. This is then transpiled to normal HTML.  JSX is a set of js code that produces html code.
 
+-babeljs.io : view how es6 code looks in actual javascript..
+
