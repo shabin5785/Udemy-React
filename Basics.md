@@ -10,3 +10,5 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 - React is a JS library. We write individual components or views. Components are snippets of code that produce html. Component is a set of JS functions that produce html
 
 - Components by default are not put into view. We need to specifically include the components that we want to be in html
+
+-Const is ES6 syntax
