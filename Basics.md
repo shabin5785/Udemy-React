@@ -11,4 +11,5 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 
 - Components by default are not put into view. We need to specifically include the components that we want to be in html
 
--Const is ES6 syntax
+-Const is ES6 syntax. Const is declaring a variable as var. But const variable cannot be reassigned.
+
