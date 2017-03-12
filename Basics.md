@@ -36,5 +36,7 @@ React.render(<App />);
 
 Here first render gives error, as we are trying with a class. Second one is using an object.
 
+- In above just render wont work. We have tell where to render it. Like a target container or dom. So needs to give a valid dom element in html document.
+
 
 
