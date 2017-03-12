@@ -24,3 +24,17 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 - after we create the react components, we need to push them to the browser dom.
 
 -React is diverging into two components. The core react library knows how to interact with react components.ReactDOM library is the one that now interacts with browser DOM.
+
+- WHen we create a component we are creating a Class or a type of object. We are not acutally creating objects. We can create n number of objects from that class.
+
+- the component class is converted to object when we use it as a tag. What react component does is actually declare a class of react tags, like html tags (div, h1 etc). Now use the component as it is means using the declaration. That is the class. So use the tag .
+> const App = function () {
+  return <divHi!</div;
+}
+React.render(App);
+React.render(<App />);
+
+Here first render gives error, as we are trying with a class. Second one is using an object.
+
+
+
