@@ -18,3 +18,5 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 -babeljs.io : view how es6 code looks in actual javascript..
 
 -jsx components can be nested inside other components
+
+-what we write in react is conveted to vanilla JS. go to the site given above to view that. We write html code inside react fns, that is converted to react specific vanilla js code.
