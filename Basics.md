@@ -40,5 +40,7 @@ Here first render gives error, as we are trying with a class. Second one is usin
 
 -component is a function or class that returns some html code. So we can have one component for search one for video, one for form etc
 
+- So break up our app into components. Then design and implement them. Instead of having only one component. So basically we have one big components ( Our main page) and then multiple components nested inside that. We can have any levels of nesting
+
 
 
