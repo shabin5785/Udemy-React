@@ -22,3 +22,5 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 -what we write in react is conveted to vanilla JS. go to the site given above to view that. We write html code inside react fns, that is converted to react specific vanilla js code.
 
 - after we create the react components, we need to push them to the browser dom.
+
+-React is diverging into two components. The core react library knows how to interact with react components.ReactDOM library is the one that now interacts with browser DOM.
