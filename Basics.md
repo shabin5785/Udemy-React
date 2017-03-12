@@ -20,3 +20,5 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 -jsx components can be nested inside other components
 
 -what we write in react is conveted to vanilla JS. go to the site given above to view that. We write html code inside react fns, that is converted to react specific vanilla js code.
+
+- after we create the react components, we need to push them to the browser dom.
