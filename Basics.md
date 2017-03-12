@@ -17,3 +17,4 @@ Code link: https://github.com/StephenGrider/ReduxCasts
 
 -babeljs.io : view how es6 code looks in actual javascript..
 
+-jsx components can be nested inside other components
