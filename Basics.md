@@ -45,3 +45,7 @@ Here first render gives error, as we are trying with a class. Second one is usin
 - Building components also helps us in reuse. Also one component per file is better
 
 --Even if we are not using React element in a js file, if we are defining a react component in that file, we need to include React import, because when code is transpiled, the file with component will give error as it will be converted to react code and so React is needed to be included. To verify use the site to view react components and in js declare any react component and see the output code
+
+-React components can be written as functional components (where we return a function that takes some input and return some html) or as es6 classes( class component). Class component has abilit to record its interaction or aware of its state, compared to fuctional component.
+
+- ES6 class is a js object with functions and properties.
