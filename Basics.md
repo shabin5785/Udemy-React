@@ -49,3 +49,5 @@ Here first render gives error, as we are trying with a class. Second one is usin
 -React components can be written as functional components (where we return a function that takes some input and return some html) or as es6 classes( class component). Class component has abilit to record its interaction or aware of its state, compared to fuctional component.
 
 - ES6 class is a js object with functions and properties. Objects of that can be created using normal class objects using new operator.
+
+-Every react class based component must have a render method to show it on screen
