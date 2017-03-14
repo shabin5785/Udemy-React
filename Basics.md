@@ -62,6 +62,19 @@ Here first render gives error, as we are trying with a class. Second one is usin
 
 - all js classes have a special fn called constructor. Like a java construtor. called when new instance is created. So we can define state inside that.
 
-- always use setState or setProps. instead of using this.prop.key=''.. First one is the standard and correct way.Especially setting state. We always manipulate set using setState. setState infact tell react that value has changed
+- always use setState or setProps. instead of using this.prop.key=''.. First one is the standard and correct way.Especially setting state. We always manipulate set using setState. setState infact tell react that value has changed. But we can use the getter only like this.props.key. Never use it to set.
 
 - enclose js variables with {} while refering them inside jsx code
+
+
+-  > render() {
+    return (
+      <div
+      <input onChange={ (e) = this.setState({term: e.target.value}) } /
+      Value of input : {this.state.term}
+    </div
+    );
+    
+    Now when input changes,event listener runs. This updates the state. This causes the element to rerender. This inturn invokes render method. Render method has a line to print the state causing new value to be shown.
+    
+    
