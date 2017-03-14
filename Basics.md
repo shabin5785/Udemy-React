@@ -79,4 +79,13 @@ Here first render gives error, as we are trying with a class. Second one is usin
     
     Now when input changes,event listener runs. This updates the state. This causes the element to rerender. This inturn invokes render method. Render method has a line to print the state causing new value to be shown.
     
+- Controlled field element is one having value set by state, not otherway around. So state sets the value. Usally inpyt chnages and set the state. But this is other way. Below is an exmaple. Value set by state.
+> <input
+          value={this.state.term}
+         onChange={ (e) = this.setState({term: e.target.value}) } /
+         
+         
+
+
+    
     
