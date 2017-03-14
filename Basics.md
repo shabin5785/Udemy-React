@@ -82,10 +82,8 @@ Here first render gives error, as we are trying with a class. Second one is usin
 - Controlled field element is one having value set by state, not otherway around. So state sets the value. Usally inpyt chnages and set the state. But this is other way. Below is an exmaple. Value set by state.
 > <input
           value={this.state.term}
-         onChange={ (e) = this.setState({term: e.target.value}) } /
-         
-         
-
-
-    
+         onChange={ (e) = this.setState({term: e.target.value}) } />
+        
+        
+If we remove the onChange frmo above, the state is not set, so component doesnt rerender, and so value dont change and so input will always remain empty or the initail state value.    
     
