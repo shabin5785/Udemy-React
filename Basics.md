@@ -51,3 +51,5 @@ Here first render gives error, as we are trying with a class. Second one is usin
 - ES6 class is a js object with functions and properties. Objects of that can be created using normal class objects using new operator.
 
 -Every react class based component must have a render method to show it on screen
+
+- Events are handled by event handlers and pass the event handler to the element we want to monitor. The custom handlers are linked using html triggers like onchange onFocus etc. This event object is inturn passed to the custom handler function
