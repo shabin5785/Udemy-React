@@ -53,3 +53,13 @@ Here first render gives error, as we are trying with a class. Second one is usin
 -Every react class based component must have a render method to show it on screen
 
 - Events are handled by event handlers and pass the event handler to the element we want to monitor. The custom handlers are linked using html triggers like onchange onFocus etc. This event object is inturn passed to the custom handler function. The event object passed has all details of the event.
+
+-state is a plain js object that is used to record and react to user event. Each class based component that we defined has its own state object. when the components state changes it rerenders immediately.Also forces all his children to rerender as well.
+
+- State needs to be initailized. Its a simple plain js object
+
+- functional components do not have state. Only class based components do
+
+- all js classes have a special fn called constructor. Like a java construtor. called when new instance is created. So we can define state inside that.
+
+- always use setState or setProps. instead of using this.prop.key=''..
