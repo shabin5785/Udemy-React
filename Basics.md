@@ -62,4 +62,6 @@ Here first render gives error, as we are trying with a class. Second one is usin
 
 - all js classes have a special fn called constructor. Like a java construtor. called when new instance is created. So we can define state inside that.
 
-- always use setState or setProps. instead of using this.prop.key=''..
+- always use setState or setProps. instead of using this.prop.key=''.. First one is the standard and correct way.Especially setting state. We always manipulate set using setState. setState infact tell react that value has changed
+
+- enclose js variables with {} while refering them inside jsx code
