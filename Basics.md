@@ -52,4 +52,4 @@ Here first render gives error, as we are trying with a class. Second one is usin
 
 -Every react class based component must have a render method to show it on screen
 
-- Events are handled by event handlers and pass the event handler to the element we want to monitor. The custom handlers are linked using html triggers like onchange onFocus etc. This event object is inturn passed to the custom handler function
+- Events are handled by event handlers and pass the event handler to the element we want to monitor. The custom handlers are linked using html triggers like onchange onFocus etc. This event object is inturn passed to the custom handler function. The event object passed has all details of the event.
