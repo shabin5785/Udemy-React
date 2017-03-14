@@ -64,6 +64,8 @@ Here first render gives error, as we are trying with a class. Second one is usin
 
 - always use setState or setProps. instead of using this.prop.key=''.. First one is the standard and correct way.Especially setting state. We always manipulate set using setState. setState infact tell react that value has changed. But we can use the getter only like this.props.key. Never use it to set.
 
+-variable name has to be state. React state. nothing else.
+
 - enclose js variables with {} while refering them inside jsx code
 
 
