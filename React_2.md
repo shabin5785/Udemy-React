@@ -5,3 +5,5 @@
 - In react use className for referncing css class. Using class has conflicts with keyword class
 
 - pass value to components using properties in jsx tag.. like props in html tags.. color, size width etc
+
+- fn based, props are passed as arguments. In class based, props are avaialbel in any method as this.props
