@@ -9,3 +9,5 @@
 - fn based, props are passed as arguments. In class based, props are avaialbel in any method as this.props. passing data is same in both cases
 
 - map is the best way to iterate
+
+- its better to use key value pairs as updates of specific items is easier
