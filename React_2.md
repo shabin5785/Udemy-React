@@ -16,4 +16,4 @@
 
 -during intial load of app, the variables have no value. But still the components try to render them. This causes error. So we need to hanlde the null values or props. Some parent components cannot fetch data fast enough before the child is rendered. .Like fetching youtube videos.. this leads to above error.
 
-- we need to put the functions taht update state in main file. .and pass it to the components. .The components in turn call the passed function
+- we need to put the functions taht update state in main file. .and pass it to the components. .The components in turn call the passed function. This is rarely more than two levels deep. Like passing callback functions to one component, to its child and like that. 
