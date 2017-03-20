@@ -14,4 +14,6 @@
 
 -ES6 use tilde in strings for string interpolation instead of singel quote
 
--during intial load of app, the variables have no value. But still the components try to render them. This causes error. So we need to hanlde the null values or props.
+-during intial load of app, the variables have no value. But still the components try to render them. This causes error. So we need to hanlde the null values or props. Some parent components cannot fetch data fast enough before the child is rendered. .Like fetching youtube videos.. this leads to above error.
+
+- we need to put the functions taht update state in main file. .and pass it to the components. .The components in turn call the passed function
