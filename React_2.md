@@ -13,3 +13,5 @@
 - its better to use key value pairs as updates of specific items is easier. So preferably always add a key attribute..
 
 -ES6 use tilde in strings for string interpolation instead of singel quote
+
+-during intial load of app, the variables have no value. But still the components try to render them. This causes error. So we need to hanlde the null values or props.
