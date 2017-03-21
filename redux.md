@@ -1,3 +1,1 @@
-## A New Post
-
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+- Redux includes all the data or state of app. Not just data, the meta data as well. like current selection, preferences etc. React represents the views that translates the redux state to views. We centralize all the data of an app in single library. Redux so has application state. while react has component level state. SO redux advocates separation of state of app and react as the view layer
