@@ -19,3 +19,5 @@
 - we need to put the functions taht update state in main file. .and pass it to the components. .The components in turn call the passed function. This is rarely more than two levels deep. Like passing callback functions to one component, to its child and like that. This is also confusing as we need to see multiple files to see wher the function is actually used. We have better approaches to this.
 
 - lodash debounce can only allow a function to be called after a certain time.
+
+- State can be component level state. First example, App has one state, search bar has another. .Redux has single state. React has component level state.
