@@ -15,3 +15,5 @@
 - in backedn, redux generates a state object (using store), we add data to it using reducers and then link this to react to be displayed.
 
 -action and action creators are responsible for changing the state
+
+- an action creator is a fn that returns an action. This action has details about the action being generated. the action is then is automatically send to all reducers in the application. Reducer can choose depending on action a differnt state. This state gets pumped to app state,causing the app to rerender. All this is triggered by some action like user click or ajax request etc. For all this work we need to wire action creator to redux.
