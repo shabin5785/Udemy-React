@@ -13,3 +13,5 @@
 - in a contianer if the state passed ever changes, the container rerender.
 
 - in backedn, redux generates a state object (using store), we add data to it using reducers and then link this to react to be displayed.
+
+-action and action creators are responsible for changing the state
