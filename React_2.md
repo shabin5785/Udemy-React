@@ -39,3 +39,5 @@ Here every time action occurs, state is incremented by one..as same state is pas
 - never mutate state inside action. Return a clean state.. ie, slice or return whole state. .dont change it
 
 - Component state is completely different from application state. no relation between them
+
+- action invokes reducers and there by cause reducers to return different state based on action . this causes the app state to change , and components to re render. Here action is created by action creators that are plain js fns, which gets called from components resulting in actions.
