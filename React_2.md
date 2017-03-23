@@ -23,3 +23,18 @@
 - State can be component level state. First example, App has one state, search bar has another. .Redux has single state. React has component level state.
 
 - action usually has a type and payload. TYpe descibes the action, every action must have a type that should descibe it. Action will be sent to all teh reducers by react redux wiring 
+
+- all reducers get two arguments. current state and the action. So reducers are only ever caled when an action occurs. THe state is not the application state, but only the state the reducer is responsible for. THat state here is acytally the one produced by the reducer. This is sent back to it when an action occurs. 
+
+> export default function(state, action) {
+  state += 1
+}
+
+Here every time action occurs, state is incremented by one..as same state is passed back to it.
+
+- every reducer needs to take care of action it doesnt care about,so that it pass the state through it
+
+- react doesnt allow to return undefined state. So initialize state to null or empty obj before returning. But for null beware of using it during first call.. 
+
+- never mutate state inside action. Return a clean state.. ie, slice or return whole state. .dont change it
+
