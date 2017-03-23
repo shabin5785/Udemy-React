@@ -34,7 +34,8 @@ Here every time action occurs, state is incremented by one..as same state is pas
 
 - every reducer needs to take care of action it doesnt care about,so that it pass the state through it
 
-- react doesnt allow to return undefined state. So initialize state to null or empty obj before returning. But for null beware of using it during first call.. 
+- react doesnt allow to return undefined state. So initialize state to null or empty obj before returning. But for null beware of using it during first call..  Bypass it by returnig empty object or doing a null check before using it
 
 - never mutate state inside action. Return a clean state.. ie, slice or return whole state. .dont change it
 
+- Component state is completely different from application state. no relation between them
