@@ -21,3 +21,5 @@
 - lodash debounce can only allow a function to be called after a certain time.
 
 - State can be component level state. First example, App has one state, search bar has another. .Redux has single state. React has component level state.
+
+- action usually has a type and payload. TYpe descibes the action, every action must have a type that should descibe it. Action will be sent to all teh reducers by react redux wiring 
