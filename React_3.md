@@ -11,4 +11,6 @@ this (aka "the context") is a special keyword inside each function and its value
 
 - WE can have any stage or steps of middlewares. All are linked through and actins pass through all middlewares before reaching reducer.
 
+- redux middleware stops an action if action has a promise as payload. It resume it once promise returns
+
 
