@@ -1,3 +1,3 @@
-## A New Post
+- A simple component if it has to talk to redux has to be a container. So make it a class as well.
 
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+- Controlled field is one with value being set by the state element.
