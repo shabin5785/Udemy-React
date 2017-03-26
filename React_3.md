@@ -15,4 +15,4 @@ this (aka "the context") is a special keyword inside each function and its value
 
 - containers are always class based. Components can be class or functional
 
-- ref property in react allows a component to get refernce to a rendered object in a page
+- ref property in react allows a component to get refernce to a rendered object in a page. So we can add ref to a component and later refer it using this.refs.<name> anyware in the project.
