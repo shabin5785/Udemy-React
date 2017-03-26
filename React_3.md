@@ -14,3 +14,5 @@ this (aka "the context") is a special keyword inside each function and its value
 - redux middleware stops an action if action has a promise as payload. It creates a new state with same type as old and activates that when promise returns. beauty of this is we avoid callback hell for async. Middleware takes care of this
 
 - containers are always class based. Components can be class or functional
+
+- ref property in react allows a component to get refernce to a rendered object in a page
