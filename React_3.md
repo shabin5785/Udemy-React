@@ -16,3 +16,5 @@ this (aka "the context") is a special keyword inside each function and its value
 - containers are always class based. Components can be class or functional
 
 - ref property in react allows a component to get refernce to a rendered object in a page. So we can add ref to a component and later refer it using this.refs.<name> anyware in the project.
+
+- normally to work with third party libraries that dont know how to render using react, like google maps( they know how to render themselves, but not in react context), we decalre a react component with a ref attribtue and then use that ref as reference to render the third party library.
