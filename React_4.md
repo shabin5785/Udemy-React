@@ -10,4 +10,7 @@
   <Route path="g2" component={Greeting} /
 </Route
 
-Issue above is route know we want to show App and Greeting for path /g1. But it doesnt know where to put greeting and App. App and Greeting have parent child relationship. We need to tell APp to show the children. We can do that using   {this.props.children}. All child components are passed to App as child in props.
+Issue above is route know we want to show App and Greeting for path /g1. But it doesnt know where to put greeting and App. App and Greeting have parent child relationship. We need to tell APp to show the children. We can do that using   {this.props.children}. All child components are passed to App as child in props. Where we put the   {this.props.children} line in App decides where to put the children. In which div, etc.
+
+- IndexRoute is a helper that behaves that behaves like a route. It activates when a route is matched with one defined by the parent but  not the children. Useful in below case.
+We want our root "/" to show one basic component. But our desing demands we show the welcome contest as well for "/". Changing "/" to Welcome content is not good practice. Keep "/" to basic component. we can use indexcomponent to help us here.
