@@ -1,1 +1,5 @@
 - react router also has a tiny package within it called history, that handles all url links and histories. History library watches for url changes and then indicates it to react router. react router depending on url changes updates the react component that needs to be displayed on scren and pass it to react.. React inturn render the new components.
+
+- browserhistory library takes everyting after the protocol part. This is not the history library above. We can also use hashHistory, anything after hash be used for tracking. Memory history doesnt use the url at all.. We can use any three of these. All these three tell react route the chane in url or page.
+
+- while using routes, we remove the main app from index.js or main page, and server the routes from index.js. Through routes we map root url to APp or main component
