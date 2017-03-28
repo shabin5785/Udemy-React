@@ -3,3 +3,11 @@
 - browserhistory library takes everyting after the protocol part. This is not the history library above. We can also use hashHistory, anything after hash be used for tracking. Memory history doesnt use the url at all.. We can use any three of these. All these three tell react route the chane in url or page.
 
 - while using routes, we remove the main app from index.js or main page, and server the routes from index.js. Through routes we map root url to APp or main component
+
+- Nesting routes.
+> <Route path="/" component={App} 
+  <Route path="g1" component={Greeting} /
+  <Route path="g2" component={Greeting} /
+</Route
+
+Issue above is route know we want to show App and Greeting for path /g1. But it doesnt know where to put greeting and App. App and Greeting have parent child relationship. We need to tell APp to show the children. We can do that using   {this.props.children}. All child components are passed to App as child in props.
