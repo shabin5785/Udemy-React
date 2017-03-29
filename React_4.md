@@ -14,3 +14,7 @@ Issue above is route know we want to show App and Greeting for path /g1. But it 
 
 - IndexRoute is a helper that behaves that behaves like a route. It activates when a route is matched with one defined by the parent but  not the children. Useful in below case.
 We want our root "/" to show one basic component. But our desing demands we show the welcome contest as well for "/". Changing "/" to Welcome content is not good practice. Keep "/" to basic component. we can use indexcomponent to help us here.
+
+- Redux promise library unravels the promises returned by apis.
+
+- the react can flow can be triggered by a number of scenarions .Like hitting serach button or loading home page etc. For cases with no specific input , like loading home page, we can trigger base action in life cylce methods. One life cylce mehtod is componentwillmount.
