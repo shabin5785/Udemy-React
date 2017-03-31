@@ -21,4 +21,4 @@ We want our root "/" to show one basic component. But our desing demands we show
 
 - Link is a React component that ends up as an anchor tag. This can be used to link componentns or go frm one component to another
 
-- in redux form we define form in component and this is later added to the application. Redux form handles the state of the form. That is holding the data in form. We still have to build the form.
+- in redux form we define form in component and this is later added to the application. Redux form handles the state of the form. That is holding the data in form. We still have to build the form. We define redux form state, design the form and wire up the two together.
