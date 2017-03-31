@@ -20,3 +20,5 @@ We want our root "/" to show one basic component. But our desing demands we show
 - the react can flow can be triggered by a number of scenarions .Like hitting serach button or loading home page etc. For cases with no specific input , like loading home page, we can trigger base action in life cylce methods. One life cylce mehtod is componentwillmount.
 
 - Link is a React component that ends up as an anchor tag. This can be used to link componentns or go frm one component to another
+
+- in redux form we define form in component and this is later added to the application. Redux form handles the state of the form. That is holding the data in form. We still have to build the form.
