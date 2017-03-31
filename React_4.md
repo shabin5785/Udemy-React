@@ -23,4 +23,4 @@ We want our root "/" to show one basic component. But our desing demands we show
 
 - in redux form we define form in component and this is later added to the application. Redux form handles the state of the form. That is holding the data in form. We still have to build the form. We define redux form state, design the form and wire up the two together.
 
-- redux form injects some helpers to this.props. We can use it to wire form to redux form
+- redux form injects some helpers to this.props. We can use it to wire form to redux form. Also we need to create the action creator and hand it to redux form to invoke by itself
