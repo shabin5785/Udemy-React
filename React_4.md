@@ -24,3 +24,5 @@ We want our root "/" to show one basic component. But our desing demands we show
 - in redux form we define form in component and this is later added to the application. Redux form handles the state of the form. That is holding the data in form. We still have to build the form. We define redux form state, design the form and wire up the two together.
 
 - redux form injects some helpers to this.props. We can use it to wire form to redux form. Also we need to create the action creator and hand it to redux form to invoke by itself. For this redux form is similar to connect. But take the form properties as first argument. Rest all is same.
+
+- React router has a buitin method called push. We can add a target url or path to push and react rotuer will navigate to it automatically. Its part of context object in React Component. Context is like a root scope. So dont over use it.  For this we declare a contextobject in our component as object within class and initalize it to Proptypes.When we use hte object, react will search for the Proptypes in all the hierarchy tree for our component and find the object( in this case React Router)
