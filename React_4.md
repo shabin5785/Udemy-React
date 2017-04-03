@@ -28,3 +28,5 @@ We want our root "/" to show one basic component. But our desing demands we show
 - React router has a buitin method called push. We can add a target url or path to push and react rotuer will navigate to it automatically. Its part of context object in React Component. Context is like a root scope. So dont over use it.  For this we declare a contextobject in our component as object within class and initalize it to Proptypes.When we use hte object, react will search for the Proptypes in all the hierarchy tree for our component and find the object( in this case React Router)
 
 - Need a key whenever rendering a list in react
+
+
