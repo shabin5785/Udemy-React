@@ -7,3 +7,5 @@
 - Firebase? One think firebase causes events to be generated for delete, update , insert etc. So state changes is automaticaly triggered. We dont have to fetch data again after an event. Firebase is event based flow. So we subscribe to events and return actions async with thunk
 
 - try to use helper methods and js libraries to avoid repetitive and large codes.. like repeat divs, validations, getting values from maps etc Html is just string so we can append strings, concat etc and create code within fns and loops and reduce code footprint
+
+- reselect is used to calculate derived state.
