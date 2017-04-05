@@ -8,4 +8,8 @@
 
 - try to use helper methods and js libraries to avoid repetitive and large codes.. like repeat divs, validations, getting values from maps etc Html is just string so we can append strings, concat etc and create code within fns and loops and reduce code footprint
 
-- reselect is used to calculate derived state.
+- reselect is used to calculate derived state. Example  we have some posts and need to show selectd posts from them. SO we have a state of posts plus selected. So final state is sum of two reducers, one for all posts and one for selected posts. Reselect can be used to derive at this calculated state.
+
+- Isse with a plain react approach is that to find selected posts we need to knw the structure of all posts collection.  Reselcet provides a selector, that can take the two reducers output and give us our state . With each reducer nt knowing any idea abt internal state. We hand over state creation of reselecct, instead of doing it within reducer. So any where we want the final state to be a derived one from multiple states, we can use reselect
+
+- instead of loading data on componentmount, we can load on route enter as well. more reusable. So not tied to any component. 
