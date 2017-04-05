@@ -13,3 +13,7 @@
 - Isse with a plain react approach is that to find selected posts we need to knw the structure of all posts collection.  Reselcet provides a selector, that can take the two reducers output and give us our state . With each reducer nt knowing any idea abt internal state. We hand over state creation of reselecct, instead of doing it within reducer. So any where we want the final state to be a derived one from multiple states, we can use reselect
 
 - instead of loading data on componentmount, we can load on route enter as well. more reusable. So not tied to any component. 
+
+- Raectcsstransitiongroup is a component in react. It can be used to animate components or items.WE can add animations like fade, slide in etc. we can wrap our state cahnge liek add, delete etc in reactcsstxngrp and get animation. WE can style animation ourselves
+
+- Four common errors, first: Forgetting to export from components leading to error like component should not be null or number etc. Second: wrong import, with and wihtout curly braces.. Third: Error in asycn calls or promises. and not catching or handling them.Fourth: React wont render js objects. So while returing or rendering data, use arrays or parse objects befre rendering
