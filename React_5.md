@@ -17,3 +17,11 @@
 - Raectcsstransitiongroup is a component in react. It can be used to animate components or items.WE can add animations like fade, slide in etc. we can wrap our state cahnge liek add, delete etc in reactcsstxngrp and get animation. WE can style animation ourselves
 
 - Four common errors, first: Forgetting to export from components leading to error like component should not be null or number etc. Second: wrong import, with and wihtout curly braces.. Third: Error in asycn calls or promises. and not catching or handling them.Fourth: React wont render js objects. So while returing or rendering data, use arrays or parse objects befre rendering
+
+- MOdal is the pop up window with information. Slightly chalenging to do in react. 
+
+- Storing state data as object is better instead of as array. First of all, in an array we have to iterate and find, while object we can use the key to find it easily. Also its easier to update object based state than array based. lodash method can convert an array to object.
+
+- if we git a route and if no default file is configured, index.html will be served by the server. COmmon internet rule
+
+- wihtout browser history, when we access links, the url changes but no new request is made to sever. This request is made only when page refreshes. We can overcome a single page app, whihc always serves the main page and then react components within that based on react routes.
