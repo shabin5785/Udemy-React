@@ -31,4 +31,49 @@ const element = <h1{title}</h1;
 
 By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent XSS (cross-site-scripting) attacks.
 
-- 
+- Babel compiles JSX down to React.createElement() calls.
+
+These two examples are identical:
+
+> const element = (
+  <h1 className="greeting"
+    Hello, world!
+  </h1
+);
+
+> const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+
+React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+
+> // Note: this structure is simplified
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world'
+  }
+};
+
+These objects are called "React elements". You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+
+- Elements are the smallest building blocks of React apps.
+
+An element describes what you want to see on the screen:
+
+> const element = <h1Hello, world</h1;
+
+Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+
+
+- To render a React element into a root DOM node, pass both to ReactDOM.render():
+<div id="root"></div>
+
+> const element = <h1Hello, world</h1;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
