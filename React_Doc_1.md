@@ -159,3 +159,25 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+Typically, new React apps have a single App component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like Button and gradually work your way to the top of the view hierarchy. Components must return a single root element. This is why we added a <div> to contain all the <Welcome /> elements.
+
+- Don't be afraid to split components into smaller components. Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
+
+Whether you declare a component as a function or a class, it must never modify its own props. Consider this sum function:
+
+function sum(a, b) {
+  return a + b;
+}
+Such functions are called "pure" because they do not attempt to change their inputs, and always return the same result for the same inputs.
+
+In contrast, this function is impure because it changes its own input:
+
+function withdraw(account, amount) {
+  account.total -= amount;
+}
+React is pretty flexible but it has a single strict rule:
+
+All React components must act like pure functions with respect to their props.
+
+Of course, application UIs are dynamic and change over time. In the next section, we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+
