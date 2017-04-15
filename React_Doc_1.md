@@ -181,3 +181,54 @@ All React components must act like pure functions with respect to their props.
 
 Of course, application UIs are dynamic and change over time. In the next section, we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
 
+-State is similar to props, but it is private and fully controlled by the component.
+We mentioned before that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.
+
+You can convert a functional component like Clock to a class in five steps:
+
+Create an ES6 class with the same name that extends React.Component.
+
+Add a single empty method to it called render().
+
+Move the body of the function into the render() method.
+
+Replace props with this.props in the render() body.
+
+Delete the remaining empty function declaration.
+
+> class Clock extends React.Component {
+  render() {
+    return (
+      <div
+        <h1Hello, world!</h1
+        <h2It is {this.props.date.toLocaleTimeString()}.</h2
+      </div
+    );
+  }
+}
+
+### Adding Local State to a Class
+- Replace this.props.date with this.state.date in the render() method:
+- Add a class constructor that assigns the initial this.state:Class components should always call the base constructor with props.
+- No need to pass props while using the component now.
+
+> class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+render() {
+    return (
+      <div
+        <h1Hello, world!</h1
+        <h2It is {this.state.date.toLocaleTimeString()}.</h2
+      </div
+    );
+  }
+}
+ReactDOM.render(
+  <Clock /,
+  document.getElementById('root')
+);
+
+### Adding Lifecycle Methods to a Class
