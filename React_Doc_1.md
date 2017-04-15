@@ -130,11 +130,11 @@ Lets recap what happens in this example:
 
 - We call ReactDOM.render() with the <Welcome name="Sara" /> element.
 - React calls the Welcome component with {name: 'Sara'} as the props.
-- Our Welcome component returns a <h1>Hello, Sara</h1> element as the result.
-- React DOM efficiently updates the DOM to match <h1>Hello, Sara</h1>.
+- Our Welcome component returns a h1>Hello, Sara</h1> element as the result.
+- React DOM efficiently updates the DOM to match h1>Hello, Sara</h1>.
 
 Always start component names with a capital letter.
-For example, <div /> represents a DOM tag, but <Welcome /> represents a component and requires Welcome to be in scope.
+For example, div /> represents a DOM tag, but Welcome /> represents a component and requires Welcome to be in scope.
 
 ### Composing Components
 
@@ -347,7 +347,7 @@ This is why state is often called local or encapsulated. It is not accessible to
 
 A component may choose to pass its state down as props to its child components:
 
-<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 This also works for user-defined components:
 
 <FormattedDate date={this.state.date} />
@@ -475,11 +475,11 @@ In React, you can create distinct components that encapsulate behavior you need.
 Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like if or the conditional operator to create elements representing the current state, and let React update the UI to match them.
 
 function UserGreeting(props) {
-  return <h1>Welcome back!</h1>;
+  return h1>Welcome back!</h1>;
 }
 
 function GuestGreeting(props) {
-  return <h1>Please sign up.</h1>;
+  return h1>Please sign up.</h1>;
 }
 We'll create a Greeting component that displays either of these components depending on whether a user is logged in:
 
