@@ -361,13 +361,267 @@ The FormattedDate component would receive the date in its props and wouldn't kno
 
 If you imagine a component tree as a waterfall of props, each component's state is like an additional water source that joins it at an arbitrary point but also flows down. In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, and vice versa.
 
+### Handling Events
+
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences:
+
+React events are named using camelCase, rather than lowercase.
+With JSX you pass a function as the event handler, rather than a string.
+For example, the HTML:
+
+> <button onclick="activateLasers()"
+  Activate Lasers
+  </button>
+  
+is slightly different in React:
+
+> <button onClick={activateLasers}
+  Activate Lasers
+  </button>
+
+- Another difference is that you cannot return false to prevent default behavior in React. You must call preventDefault explicitly.
+
+> function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+return (
+    <a href="#" onClick={handleClick}
+      Click me
+    </a
+  );
+}
+
+Here, e is a synthetic event. React defines these synthetic events according to the W3C spec, so you don't need to worry about cross-browser compatibility. 
+
+- When using React you should generally not need to call addEventListener to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+
+When you define a component using an ES6 class, a common pattern is for an event handler to be a method on the class. For example, this Toggle component renders a button that lets the user toggle between "ON" and "OFF" states:
+
+> class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+handleClick() {
+    this.setState(prevState = ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+render() {
+    return (
+      <button onClick={this.handleClick}
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button
+    );
+  }
+}
+ReactDOM.render(
+  <Toggle /,
+  document.getElementById('root')
+);
+
+**This in callback**
+You have to be careful about the meaning of this in JSX callbacks. In JavaScript, class methods are not bound by default. If you forget to bind this.handleClick and pass it to onClick, this will be undefined when the function is actually called.
+
+This is not React-specific behavior; it is a part of how functions work in JavaScript. Generally, if you refer to a method without () after it, such as onClick={this.handleClick}, you should bind that method.
+
+If calling bind annoys you, there are two ways you can get around this. If you are using the experimental property initializer syntax, you can use property initializers to correctly bind callbacks:
+
+> class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () = {
+    console.log('this is:', this);
+  }
+render() {
+    return (
+      <button onClick={this.handleClick}
+        Click me
+      </button
+    );
+  }
+}
+
+This syntax is enabled by default in Create React App.
+
+If you aren't using property initializer syntax, you can use an arrow function in the callback:
+
+> class LoggingButton extends React.Component {
+  handleClick() {
+    console.log('this is:', this);
+  }
+render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={(e) = this.handleClick(e)}
+        Click me
+      </button
+    );
+  }
+}
+
+The problem with this syntax is that a different callback is created each time the LoggingButton renders. In most cases, this is fine. However, if this callback is passed as a prop to lower components, those components might do an extra re-rendering. We generally recommend binding in the constructor or using the property initializer syntax, to avoid this sort of performance problem.
 
 
+### Conditional Rendering
 
+In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
 
+Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like if or the conditional operator to create elements representing the current state, and let React update the UI to match them.
 
+function UserGreeting(props) {
+  return <h1>Welcome back!</h1>;
+}
 
+function GuestGreeting(props) {
+  return <h1>Please sign up.</h1>;
+}
+We'll create a Greeting component that displays either of these components depending on whether a user is logged in:
 
+> function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting /;
+  }
+  return <GuestGreeting /;
+}
+ReactDOM.render(
+  // Try changing to isLoggedIn={true}:
+  <Greeting isLoggedIn={false} /,
+  document.getElementById('root')
+);
+
+**Element Variables**
+You can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn't change.
+
+> function LoginButton(props) {
+  return (
+    <button onClick={props.onClick}
+      Login
+    </button
+  );
+}
+function LogoutButton(props) {
+  return (
+    <button onClick={props.onClick}
+      Logout
+    </button
+  );
+}
+
+In the example below, we will create a stateful component called LoginControl.
+It will render either <LoginButton /> or <LogoutButton /> depending on its current state.
+
+> class LoginControl extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.state = {isLoggedIn: false};
+  }
+
+> handleLoginClick() {
+    this.setState({isLoggedIn: true});
+  }
+
+> handleLogoutClick() {
+    this.setState({isLoggedIn: false});
+  }
+  render() {
+    const isLoggedIn = this.state.isLoggedIn;
+	 let button = null;
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={this.handleLogoutClick} /;
+    } else {
+      button = <LoginButton onClick={this.handleLoginClick} /;
+    }
+return (
+      <div
+        <Greeting isLoggedIn={isLoggedIn} /
+        {button}
+      </div
+    );
+  }
+}
+ReactDOM.render(
+  <LoginControl /,
+  document.getElementById('root')
+);
+
+While declaring a variable and using an if statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX
+
+**Inline If with Logical && Operator**
+
+You may embed any expressions in JSX by wrapping them in curly braces. This includes the JavaScript logical && operator. It can be handy for conditionally including an element:
+
+> function Mailbox(props) {
+  const unreadMessages = props.unreadMessages;
+  return (
+    <div
+      <h1Hello!</h1
+      {unreadMessages.length  0 &&
+        <h2
+          You have {unreadMessages.length} unread messages.
+        </h2
+      }
+    </div
+  );
+}
+
+> const messages = ['React', 'Re: React', 'Re:Re: React'];
+ReactDOM.render(
+  <Mailbox unreadMessages={messages} /,
+  document.getElementById('root')
+);
+
+It works because in JavaScript, true && expression always evaluates to expression, and false && expression always evaluates to false.
+
+Therefore, if the condition is true, the element right after && will appear in the output. If it is false, React will ignore and skip it.
+
+Another method for conditionally rendering elements inline is to use the JavaScript conditional operator condition ? true : false.
+
+In the example below, we use it to conditionally render a small block of text.
+
+> render() {
+  const isLoggedIn = this.state.isLoggedIn;
+  return (
+    <div
+      The user is <b{isLoggedIn ? 'currently' : 'not'}</b logged in.
+    </div
+  );
+}
+
+It can also be used for larger expressions although it is less obvious what's going on:
+
+> render() {
+  const isLoggedIn = this.state.isLoggedIn;
+  return (
+    <div
+      {isLoggedIn ? (
+        <LogoutButton onClick={this.handleLogoutClick} /
+      ) : (
+        <LoginButton onClick={this.handleLoginClick} /
+      )}
+    </div
+  );
+}
+
+**Preventing Component from Rendering**
+In rare cases you might want a component to hide itself even though it was rendered by another component. To do this return null instead of its render output.
+
+In the example below, the <WarningBanner /> is rendered depending on the value of the prop called warn. If the value of the prop is false, then the component does not render:
+
+function WarningBanner(props) {
+  if (!props.warn) {
+    return null;
+  }
+
+- Returning null from a component's render method does not affect the firing of the component's lifecycle methods. For instance, componentWillUpdate and componentDidUpdate will still be called.
 
 
 
