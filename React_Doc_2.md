@@ -1,3 +1,9 @@
-## A New Post
+### Lists and Keys
 
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+Map function in js is like this :Given the code below, we use the map() function to take an array of numbers and double their values. We assign the new array returned by map() to the variable doubled and log it:
+
+> const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map((number) = number * 2);
+console.log(doubled);
+
+
