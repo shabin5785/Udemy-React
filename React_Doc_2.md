@@ -200,4 +200,46 @@ This lets other components pass arbitrary children to them by nesting the JSX:
 
 We can also add different keys to the passed data and in the side bar or menu, split and show them
 
+**Specialization**
+Sometimes we think about components as being "special cases" of other components. For example, we might say that a WelcomeDialog is a special case of Dialog.
+
+In React, this is also achieved by composition, where a more "specific" component renders a more "generic" one and configures it with props:
+
+> function Dialog(props) {
+  return (
+    <FancyBorder color="blue"
+      <h1 className="Dialog-title"
+        {props.title}
+      </h1
+      <p className="Dialog-message"
+        {props.message}
+      </p
+    </FancyBorder
+  );
+}
+function WelcomeDialog() {
+  return (
+    <Dialog
+      title="Welcome"
+      message="Thank you for visiting our spacecraft!" />
+  );
+}
+
+One such technique is the single responsibility principle, that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+
+----------------------------------------
+
+Let's go through each one and figure out which one is state. Simply ask three questions about each piece of data:
+
+Is it passed in from a parent via props? If so, it probably isn't state.
+Does it remain unchanged over time? If so, it probably isn't state.
+Can you compute it based on any other state or props in your component? If so, it isn't state.
+The original list of products is passed in as props, so that's not state. The search text and the checkbox seem to be state since they change over time and can't be computed from anything. And finally, the filtered list of products isn't state because it can be computed by combining the original list of products with the search text and value of the checkbox.
+
+For each piece of state in your application:
+
+Identify every component that renders something based on that state.
+Find a common owner component (a single component above all the components that need the state in the hierarchy).
+Either the common owner or another component higher up in the hierarchy should own the state.
+If you can't find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.
 
