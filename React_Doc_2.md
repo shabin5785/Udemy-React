@@ -84,3 +84,22 @@ function NumberList(props) {
     </ul>
   );
 }
+
+
+> const listItems = numbers.map((number) =
+    // Correct! Key should be specified inside the array.
+    <ListItem key={number.toString()}
+              value={number} /
+  );
+  
+Keys used within arrays should be unique among their siblings. However they don't need to be globally unique. Keys serve as a hint to React but they don't get passed to your components. If you need the same value in your component, pass it explicitly as a prop with a different name:
+
+> const content = posts.map((post) =
+  <Post
+    key={post.id}
+    id={post.id}
+    title={post.title} /
+);
+
+With the example above, the Post component can read props.id, but not props.key.
+  
