@@ -161,3 +161,8 @@ In React, a <textarea> uses a value attribute instead. This way, a form using a 
       [name]: value
     });
   }
+  
+### Lifting State Up
+Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. 
+
+If we have a component and two objects or instances of that, then each will have a state of its own. No sync between them. To solve this, we put the state in common ancestor or parent of the component. The parent will then pass the state as props to child components. Now issue is child cannot update state as props are read only and state is in parent. So parent also passes a fn to update state to the child. 
