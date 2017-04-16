@@ -165,4 +165,10 @@ In React, a <textarea> uses a value attribute instead. This way, a form using a 
 ### Lifting State Up
 Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. 
 
-If we have a component and two objects or instances of that, then each will have a state of its own. No sync between them. To solve this, we put the state in common ancestor or parent of the component. The parent will then pass the state as props to child components. Now issue is child cannot update state as props are read only and state is in parent. So parent also passes a fn to update state to the child. 
+If we have a component and two objects or instances of that, then each will have a state of its own. No sync between them. To solve this, we put the state in common ancestor or parent of the component. The parent will then pass the state as props to child components. Now issue is child cannot update state as props are read only and state is in parent. So parent also passes a fn to update state to the child. In React, this is usually solved by making a component "controlled". Just like the DOM <input> accepts both a value and an onChange prop, 
+
+In React, sharing state is accomplished by moving it up to the closest common ancestor of the components that need it. This is called "lifting state up". The parent holding the state becomes single source of truth.  It can instruct them both to have values that are consistent with each other.
+
+Excellent example here https://facebook.github.io/react/docs/lifting-state-up.html
+
+
