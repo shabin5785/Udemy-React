@@ -155,6 +155,74 @@ Conversely, if you want a value like false, true, null, or undefined to appear i
 </div>
 
 
+### Refs and the DOM
+
+-In the typical React dataflow, props are the only way that parent components interact with their children. To modify a child, you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow. The child to be modified could be an instance of a React component, or it could be a DOM element. For both of these cases, React provides an escape hatch.
+
+-There are a few good use cases for refs:
+
+Managing focus, text selection, or media playback.
+Triggering imperative animations.
+Integrating with third-party DOM libraries.
+Avoid using refs for anything that can be done declaratively.
+
+For example, instead of exposing open() and close() methods on a Dialog component, pass an isOpen prop to it.
+
+-React supports a special attribute that you can attach to any component. The ref attribute takes a callback function, and the callback will be executed immediately after the component is mounted or unmounted.
+
+When the ref attribute is used on an HTML element, the ref callback receives the underlying DOM element as its argument. For example, this code uses the ref callback to store a reference to a DOM node:
+
+> class CustomTextInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.focus = this.focus.bind(this);
+  }
+  focus() {
+    // Explicitly focus the text input using the raw DOM API
+    this.textInput.focus();
+  }
+  render() {
+    // Use the `ref` callback to store a reference to the text input DOM
+    // element in an instance field (for example, this.textInput).
+    return (
+      <div
+        <input
+          type="text"
+          ref={(input) = { this.textInput = input; }} /
+        <input
+          type="button"
+          value="Focus the text input"
+          onClick={this.focus}
+        /
+      </div
+    );
+  }
+}
+
+React will call the ref callback with the DOM element when the component mounts, and call it with null when it unmounts.
+
+Using the ref callback just to set a property on the class is a common pattern for accessing DOM elements. The preferred way is to set the property in the ref callback like in the above example. There is even a shorter way to write it: ref={input => this.textInput = input}.
+
+When the ref attribute is used on a custom component declared as a class, the ref callback receives the mounted instance of the component as its argument. For example, if we wanted to wrap the CustomTextInput above to simulate it being clicked immediately after mounting:
+
+> class AutoFocusTextInput extends React.Component {
+  componentDidMount() {
+    this.textInput.focus();
+  }
+  render() {
+    return (
+      <CustomTextInput
+        ref={(input) = { this.textInput = input; }} /
+    );
+  }
+}
+
+Note that this only works if CustomTextInput is declared as a class:
+
+class CustomTextInput extends React.Component {
+  // ...
+}
+
 
 
 
