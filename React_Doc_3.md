@@ -230,6 +230,81 @@ You can, however, use the ref attribute inside a functional component as long as
 
 -**If you worked with React before, you might be familiar with an older API where the ref attribute is a string, like "textInput", and the DOM node is accessed as this.refs.textInput. We advise against it because string refs have some issues, are considered legacy, and are likely to be removed in one of the future releases. If you're currently using this.refs.textInput to access refs, we recommend the callback pattern instead.**
 
+### Uncontrolled Components
+
+-In most cases, we recommend using controlled components to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
+To write an uncontrolled component, instead of writing an event handler for every state update, you can use a ref to get form values from the DOM.
+
+-In the React rendering lifecycle, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you often want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a defaultValue attribute instead of value.
+
+
+### Optimizing Performance
+Internally, React uses several clever techniques to minimize the number of costly DOM operations required to update the UI. For many applications, using React will lead to a fast user interface without doing much work to specifically optimize for performance. Nevertheless, there are several ways you can speed up your React application.
+
+-If you're benchmarking or experiencing performance problems in your React apps, make sure you're testing with the minified production build:
+
+React builds and maintains an internal representation of the rendered UI. It includes the React elements you return from your components. This representation lets React avoid creating DOM nodes and accessing existing ones beyond necessity, as that can be slower than operations on JavaScript objects. Sometimes it is referred to as a "virtual DOM", but it works the same way on React Native.
+
+When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM.
+
+In some cases, your component can speed all of this up by overriding the lifecycle function shouldComponentUpdate, which is triggered before the re-rendering process starts. The default implementation of this function returns true, leaving React to perform the update:
+
+> shouldComponentUpdate(nextProps, nextState) {
+  return true;
+}
+
+If you know that in some situations your component doesn't need to update, you can return false from shouldComponentUpdate instead, to skip the whole rendering process, including calling render() on this component and below.
+
+-The Power Of Not Mutating Data
+The simplest way to avoid this problem is to avoid mutating values that you are using as props or state. For example, the handleClick method above could be rewritten using concat as:
+
+> handleClick() {
+  this.setState(prevState = ({
+    words: prevState.words.concat(['marklar'])
+  }));
+}
+
+ES6 supports a spread syntax for arrays which can make this easier. If you're using Create React App, this syntax is available by default.
+
+> handleClick() {
+  this.setState(prevState = ({
+    words: [...prevState.words, 'marklar'],
+  }));
+};
+
+You can also rewrite code that mutates objects to avoid mutation, in a similar way. For example, let's say we have an object named colormap and we want to write a function that changes colormap.right to be 'blue'. We could write:
+
+> function updateColorMap(colormap) {
+  colormap.right = 'blue';
+}
+To write this without mutating the original object, we can use Object.assign method:
+function updateColorMap(colormap) {
+  return Object.assign({}, colormap, {right: 'blue'});
+}
+
+updateColorMap now returns a new object, rather than mutating the old one. Object.assign is in ES6 and requires a polyfill.
+
+There is a JavaScript proposal to add object spread properties to make it easier to update objects without mutation as well:
+
+function updateColorMap(colormap) {
+  return {...colormap, right: 'blue'};
+}
+If you're using Create React App, both Object.assign and the object spread syntax are available by default.
+
+**Using Immutable Data Structures**
+Immutable.js is another way to solve this problem. It provides immutable, persistent collections that work via structural sharing:
+
+Immutable: once created, a collection cannot be altered at another point in time.
+Persistent: new collections can be created from a previous collection and a mutation such as set. The original collection is still valid after the new collection is created.
+Structural Sharing: new collections are created using as much of the same structure as the original collection as possible, reducing copying to a minimum to improve performance.
+Immutability makes tracking changes cheap. A change will always result in a new object so we only need to check if the reference to the object has changed. 
+
+Two other libraries that can help use immutable data are seamless-immutable and immutability-helper.
+Immutable data structures provide you with a cheap way to track changes on objects, which is all we need to implement shouldComponentUpdate. This can often provide you with a nice performance boost.
+
+
+
+
 
 
 
