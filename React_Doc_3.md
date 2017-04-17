@@ -223,6 +223,15 @@ class CustomTextInput extends React.Component {
   // ...
 }
 
+-You may not use the ref attribute on functional components because they don't have instances. You should convert the component to a class if you need a ref to it, just like you do when you need lifecycle methods or state.
+You can, however, use the ref attribute inside a functional component as long as you refer to a DOM element or a class component:
+
+-Your first inclination may be to use refs to "make things happen" in your app. If this is the case, take a moment and think more critically about where state should be owned in the component hierarchy. Often, it becomes clear that the proper place to "own" that state is at a higher level in the hierarchy.
+
+-**If you worked with React before, you might be familiar with an older API where the ref attribute is a string, like "textInput", and the DOM node is accessed as this.refs.textInput. We advise against it because string refs have some issues, are considered legacy, and are likely to be removed in one of the future releases. If you're currently using this.refs.textInput to access refs, we recommend the callback pattern instead.**
+
+
+
 
 
 
