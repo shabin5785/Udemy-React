@@ -57,6 +57,31 @@ In order to solve this issue, React supports a key attribute. When children have
 1. The algorithm will not try to match subtrees of different component types. If you see yourself alternating between two component types with very similar output, you may want to make it the same type. In practice, we haven't found this to be an issue.
 2. Keys should be stable, predictable, and unique. Unstable keys (like those produced by Math.random()) will cause many component instances and DOM nodes to be unnecessarily recreated, which can cause performance degradation and lost state in child components.
 
+### Context
+
+With React, it's easy to track the flow of data through your React components. When you look at a component, you can see which props are being passed, which makes your apps easy to reason about.
+In some cases, you want to pass data through the component tree without having to pass the props down manually at every level. You can do this directly in React with the powerful "context" API.
+
+**Why Not To Use Context**
+The vast majority of applications do not need to use context.
+
+If you want your application to be stable, don't use context. It is an experimental API and it is likely to break in future releases of React.
+
+If you aren't familiar with state management libraries like Redux or MobX, don't use context. For many practical applications, these libraries and their React bindings are a good choice for managing state that is relevant to many components. It is far more likely that Redux is the right solution to your problem than that context is the right solution.
+
+If you aren't an experienced React developer, don't use context. There is usually a better way to implement functionality just using props and state.
+
+If you insist on using context despite these warnings, try to isolate your use of context to a small area and avoid using the context API directly when possible so that it's easier to upgrade when the API changes.
+
+**Web Components**
+React and Web Components are built to solve different problems. Web Components provide strong encapsulation for reusable components, while React provides a declarative library that keeps the DOM in sync with your data. The two goals are complementary. As a developer, you are free to use React in your Web Components, or to use Web Components in React, or both.
+
+Most people who use React don't use Web Components, but you may want to, especially if you are using third-party UI components that are written using Web Components.
+
+Web Components often expose an imperative API. For instance, a video Web Component might expose play() and pause() functions. To access the imperative APIs of a Web Component, you will need to use a ref to interact with the DOM node directly. If you are using third-party Web Components, the best solution is to write a React component that behaves as a wrapper for your Web Component.
+Events emitted by a Web Component may not properly propagate through a React render tree. You will need to manually attach event handlers to handle these events within your React components.
+
+**Higher-Order Components**
 
 
 
@@ -64,3 +89,4 @@ In order to solve this issue, React supports a key attribute. When children have
 
 
 
+Higher-Order Components
