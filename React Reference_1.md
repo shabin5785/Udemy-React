@@ -61,3 +61,25 @@ prevState is a reference to the previous state. It should not be directly mutate
 Both prevState and props received by the updater function are guaranteed to be up-to-date.
 The second parameter to setState() is an optional callback function that will be executed once setState is completed and the component is re-rendered. Generally we recommend using componentDidUpdate() for such logic instead.
 
+**Class Properties**
+defaultProps can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props.
+
+**Instance Properties**
+this.props contains the props that were defined by the caller of this component. See Components and Props for an introduction to props.In particular, this.props.children is a special prop, typically defined by the child tags in the JSX expression rather than in the tag itself.
+
+The state contains data specific to this component that may change over time. The state is user-defined, and it should be a plain JavaScript object.If you don't use it in render(), it shouldn't be on the state. For example, you can put timer IDs directly on the instance.Never mutate this.state directly, as calling setState() afterwards may replace the mutation you made. Treat this.state as if it were immutable.
+
+- render(): Render a React element into the DOM in the supplied container and return a reference to the component (or returns null for stateless components).If the React element was previously rendered into container, this will perform an update on it and only mutate the DOM as necessary to reflect the latest React element.If the optional callback is provided, it will be executed after the component is rendered or updated.
+
+-React implements a browser-independent DOM system for performance and cross-browser compatibility. In React, all DOM properties and attributes (including event handlers) should be camelCased. For example, the HTML attribute tabindex corresponds to the attribute tabIndex in React. 
+
+-The checked attribute is supported by <input> components of type checkbox or radio. You can use it to set whether the component is checked. To specify a CSS class, use the className attribute. This applies to all regular DOM and SVG elements like <div>, <a>, and others. 
+
+dangerouslySetInnerHTML is React's replacement for using innerHTML in the browser DOM. In general, setting HTML from code is risky because it's easy to inadvertently expose your users to a cross-site scripting (XSS) attack. So, you can set HTML directly from React, but you have to type out dangerouslySetInnerHTML and pass an object with a __html key, to remind yourself that it's dangerous
+
+
+
+
+
+
+
