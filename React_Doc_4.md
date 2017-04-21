@@ -82,6 +82,13 @@ Web Components often expose an imperative API. For instance, a video Web Compone
 Events emitted by a Web Component may not properly propagate through a React render tree. You will need to manually attach event handlers to handle these events within your React components.
 
 **Higher-Order Components**
+A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature.
+
+Concretely, a higher-order component is a function that takes a component and returns a new component.
+Whereas a component transforms props into UI, a higher-order component transforms a component into another component.
+HOCs are common in third-party React libraries, such as Redux's connect and Relay's createContainer.
+
+
 
 
 
